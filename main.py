@@ -1,13 +1,12 @@
 import discord
 import my_secret_token
 import facts
-
+import pics
 
 TOKEN = my_secret_token.get_token()
 
 
 intents = discord.Intents.default()
-intents.message_content = True
 
 client = discord.Client(intents=intents)
 
@@ -28,5 +27,7 @@ async def on_message(message):
             break
     if "fact" in msg:
         await message.channel.send(facts.get_fact())
+    if "pic" in msg:
+        await message.channel.send(pics.get_pic())
 
 client.run(TOKEN)
