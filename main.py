@@ -1,7 +1,7 @@
 import discord
 import my_secret_token
 import facts
-import cat_pics
+from cat_pic_gatherer import CatPicGatherer
 from general_pic_gatherer import GeneralPicGatherer
 
 TOKEN = my_secret_token.get_token()
@@ -12,16 +12,17 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
 pic_gatherers = [
+    CatPicGatherer(), # Cat
     GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']), # Fox
     GeneralPicGatherer('https://some-random-api.ml/img/birb', ['link'], '🐦', ['bird', 'birb']) # Bird
 ]
+
 
 @client.event
 async def on_ready():
     print('Logged in as {}'.format(client.user))
 
 
-cat_words = ['cat', 'kitt', 'puss', 'kitties']
 @client.event 
 async def on_message(message):
     msg = str(message.content).lower()
