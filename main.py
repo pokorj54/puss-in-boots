@@ -2,7 +2,7 @@ import discord
 import my_secret_token
 import facts
 import cat_pics
-import fox_pics
+from general_pic_gatherer import GeneralPicGatherer
 
 TOKEN = my_secret_token.get_token()
 
@@ -11,6 +11,9 @@ intents = discord.Intents.default()
 
 client = discord.Client(intents=intents)
 
+pic_gatherers = [
+    GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']) # Fox
+]
 
 @client.event
 async def on_ready():
@@ -18,8 +21,6 @@ async def on_ready():
 
 
 cat_words = ['cat', 'kitt', 'puss', 'kitties']
-fox_words = ['fox']
-
 @client.event 
 async def on_message(message):
     msg = str(message.content).lower()
@@ -29,15 +30,11 @@ async def on_message(message):
     if "fact" in msg:
         await message.channel.send(facts.get_fact())
         await message.add_reaction('📝')
-    for w in cat_words:
-        if w in msg:
-            await message.channel.send(cat_pics.get_pic())
-            await message.add_reaction('🐈')
-            break
-    for w in fox_words:
-        if w in msg:
-            await message.channel.send(fox_pics.get_pic())
-            await message.add_reaction('🦊')
-
+    for gatherer in pic_gatherers:
+        for w in gatherer.trigger_words:
+            if w in msg:
+                await message.channel.send(gatherer.get_pic())
+                await message.add_reaction(gatherer.emote)
+                break
 
 client.run(TOKEN)
