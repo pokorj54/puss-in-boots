@@ -22,7 +22,7 @@ pic_gatherers = [
     GeneralPicGatherer('https://some-random-api.ml/img/panda', ['link'], '🐼', ['panda']),
     GeneralPicGatherer('https://some-random-api.ml/img/kangaroo', ['link'], '🦘', ['kangaroo']),
     GeneralPicGatherer('https://some-random-api.ml/img/koala', ['link'], '🐨', ['koala']),
-    GeneralPicGatherer('https://some-random-api.ml/img/red_panda', ['link'], '🔴', ['red']),
+    GeneralPicGatherer('https://some-random-api.ml/img/red_panda', ['link'], '🔴', ['red panda']),
     GeneralPicGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', ['duck', 'quack']),
     GeneralPicGatherer('https://shibe.online/api/shibes?count=1"', [0], '🦮', ['cheems', 'shiba'])
 ]
@@ -48,5 +48,7 @@ async def on_message(message):
                 await message.channel.send(gatherer.get_pic())
                 await message.add_reaction(gatherer.emote)
                 break
+    if 'list' in msg:
+        await message.channel.send("I can do: \n" + "".join([str(g.trigger_words) + " -> " + g.emote + "\n" for g in pic_gatherers]))
 
 client.run(TOKEN)
