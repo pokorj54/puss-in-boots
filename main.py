@@ -12,13 +12,19 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
 pic_gatherers = [
-    CatPicGatherer(), # Cat
-    GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']),
+    # CatPicGatherer(), # Cat
+    # GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']),
     GeneralPicGatherer('https://some-random-api.ml/img/birb', ['link'], '🐦', ['bird', 'birb']),
-    GeneralPicGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', ['duck', 'quack']),
+    GeneralPicGatherer('https://some-random-api.ml/img/dog', ['link'], '🐦', ['dog', 'pupp']),
+    GeneralPicGatherer('https://some-random-api.ml/img/cat', ['link'], '🐦', ['cat', 'kitt', 'puss']),
+    GeneralPicGatherer('https://some-random-api.ml/img/fox', ['link'], '🦊', ['fox']),
     GeneralPicGatherer('https://some-random-api.ml/img/raccoon', ['link'], '🦝', ['raccoon', 'racoon']),
     GeneralPicGatherer('https://some-random-api.ml/img/panda', ['link'], '🐼', ['panda']),
-    GeneralPicGatherer('https://shibe.online/api/shibes?count=1"', [0], '🐶', ['cheems', 'doge', 'shiba'])
+    GeneralPicGatherer('https://some-random-api.ml/img/kangaroo', ['link'], '🦘', ['kangaroo']),
+    GeneralPicGatherer('https://some-random-api.ml/img/koala', ['link'], '🐨', ['koala']),
+    GeneralPicGatherer('https://some-random-api.ml/img/red_panda', ['link'], '🐨', ['red']),
+    GeneralPicGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', ['duck', 'quack']),
+    GeneralPicGatherer('https://shibe.online/api/shibes?count=1"', [0], '🐶', ['cheems', 'shiba'])
 ]
 
 
