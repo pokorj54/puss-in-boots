@@ -12,7 +12,8 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
 pic_gatherers = [
-    GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']) # Fox
+    GeneralPicGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']), # Fox
+    GeneralPicGatherer('https://some-random-api.ml/img/birb', ['link'], '🐦', ['bird', 'birb']) # Bird
 ]
 
 @client.event
