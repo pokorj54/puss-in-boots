@@ -39,16 +39,19 @@ async def on_message(message):
     if msg == '' or message.author == client.user:
         return
     await message.add_reaction('🐱')
+    used = False
     if "fact" in msg:
         await message.channel.send(facts.get_fact())
         await message.add_reaction('📝')
+        used = True
     for gatherer in pic_gatherers:
         for w in gatherer.trigger_words:
             if w in msg:
                 await message.channel.send(gatherer.get_pic())
                 await message.add_reaction(gatherer.emote)
+                used = True
                 break
-    if 'list' in msg:
+    if 'list' in msg or not used:
         await message.channel.send("I can do: \n" + "".join([str(g.trigger_words) + " -> " + g.emote + "\n" for g in pic_gatherers]))
 
 client.run(TOKEN)
