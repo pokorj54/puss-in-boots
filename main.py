@@ -17,7 +17,8 @@ pic_gatherers = [
     GeneralPicGatherer('https://some-random-api.ml/img/birb', ['link'], '🐦', ['bird', 'birb']),
     GeneralPicGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', ['duck', 'quack']),
     GeneralPicGatherer('https://some-random-api.ml/img/raccoon', ['link'], '🦝', ['raccoon', 'racoon']),
-    GeneralPicGatherer('https://some-random-api.ml/img/panda', ['link'], '🐼', ['panda'])
+    GeneralPicGatherer('https://some-random-api.ml/img/panda', ['link'], '🐼', ['panda']),
+    GeneralPicGatherer('https://shibe.online/api/shibes?count=1"', [0], '🐶', ['cheems', 'doge', 'shiba'])
 ]
 
 
