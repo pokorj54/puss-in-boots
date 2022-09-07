@@ -51,6 +51,9 @@ async def on_message(message):
                 await message.add_reaction(gatherer.emote)
                 used = True
                 break
+    if "git" in msg:
+        await message.channel.send("You can look me up at https://github.com/pokorj54/puss-in-boots. Contribution is welcomed.")
+        used = True
     if 'list' in msg or not used:
         await message.channel.send("I can do: \n" + "".join([str(g.trigger_words) + " -> " + g.emote + "\n" for g in pic_gatherers]))
 
