@@ -3,11 +3,11 @@ import requests
 
 
 class GeneralGatherer:
-    def __init__(self, link, indexes, emote, trigger_words):
+    def __init__(self, link, indexes, emote, trigger_regex):
         self.link = link
         self.indexes = indexes
         self.emote = emote
-        self.trigger_words = trigger_words
+        self.trigger_regex = trigger_regex
 
     def get(self):
         data = requests.get(self.link)
