@@ -24,6 +24,8 @@ gatherers = [
     GeneralGatherer('https://some-random-api.ml/img/kangaroo', ['link'], '🦘', 'kangaroo'),
     GeneralGatherer('https://some-random-api.ml/img/koala', ['link'], '🐨', 'koala'),
     GeneralGatherer('https://some-random-api.ml/img/red_panda', ['link'], '🔴', 'red panda'),
+    GeneralGatherer('https://some-random-api.ml/img/whale', ['link'], '🐋', 'whale'),
+    GeneralGatherer('https://some-random-api.ml/img/pikachu', ['link'], '😲', 'pikachu'),
     GeneralGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', 'duck|quack'),
     GeneralGatherer('https://shibe.online/api/shibes?count=1', [0], '🦮', 'cheems|shiba'),
     GeneralGatherer('https://zoo-animal-api.herokuapp.com/animals/rand', ['image_link'], '🐵', 'animal|zoo'),
