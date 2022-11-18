@@ -15,7 +15,7 @@ client = discord.Client(intents=intents)
 gatherers = [
     # CatPicGatherer(), # Cat
     # GeneralGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']),
-    GeneralGatherer('https://some-random-api.ml/img/birb', ['link'], '🐦', 'bird|birb'),
+    GeneralGatherer('https://some-random-api.ml/img/bird', ['link'], '🐦', 'bird|birb'),
     GeneralGatherer('https://some-random-api.ml/img/dog', ['link'], '🐶', 'dog|pupp'),
     GeneralGatherer('https://some-random-api.ml/img/cat', ['link'], '🐈', 'cat|kitt|puss'),
     GeneralGatherer('https://some-random-api.ml/img/fox', ['link'], '🦊', 'fox'),
