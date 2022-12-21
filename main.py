@@ -3,6 +3,7 @@ import my_secret_token
 import facts
 from cat_pic_gatherer import CatPicGatherer
 from general_gatherer import GeneralGatherer
+from xkcd_gatherer import XkcdGatherer
 import re
 
 TOKEN = my_secret_token.get_token()
@@ -30,7 +31,8 @@ gatherers = [
     GeneralGatherer('https://shibe.online/api/shibes?count=1', [0], '🦮', 'cheems|shiba'),
     GeneralGatherer('https://zoo-animal-api.herokuapp.com/animals/rand', ['image_link'], '🐵', 'animal|zoo'),
     GeneralGatherer('https://coffee.alexflipnote.dev/random.json', ['file'], '☕', 'coffee|kafi'),
-    GeneralGatherer('https://api.yomomma.info/', ['joke'], '👩', 'yo ?mama|yo ?mamma|your ?mom')
+    GeneralGatherer('https://api.yomomma.info/', ['joke'], '👩', 'yo ?mama|yo ?mamma|your ?mom'),
+    XkcdGatherer()
 ]
 
 
