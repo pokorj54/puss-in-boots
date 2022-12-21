@@ -4,6 +4,7 @@ import facts
 from cat_pic_gatherer import CatPicGatherer
 from general_gatherer import GeneralGatherer
 from xkcd_gatherer import XkcdGatherer
+from inspirobot_gatherer import InspirobotGatherer
 import re
 
 TOKEN = my_secret_token.get_token()
@@ -32,7 +33,8 @@ gatherers = [
     GeneralGatherer('https://zoo-animal-api.herokuapp.com/animals/rand', ['image_link'], '🐵', 'animal|zoo'),
     GeneralGatherer('https://coffee.alexflipnote.dev/random.json', ['file'], '☕', 'coffee|kafi'),
     GeneralGatherer('https://api.yomomma.info/', ['joke'], '👩', 'yo ?mama|yo ?mamma|your ?mom'),
-    XkcdGatherer()
+    XkcdGatherer(),
+    InspirobotGatherer()
 ]
 
 

@@ -1,9 +1,5 @@
 import xkcd
 
-
-import requests
-
-
 class XkcdGatherer:
     def __init__(self):
         self.emote = '🧑‍🔬'
