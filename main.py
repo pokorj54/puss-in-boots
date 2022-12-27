@@ -33,6 +33,7 @@ gatherers = [
     GeneralGatherer('https://zoo-animal-api.herokuapp.com/animals/rand', ['image_link'], '🐵', 'animal|zoo'),
     GeneralGatherer('https://coffee.alexflipnote.dev/random.json', ['file'], '☕', 'coffee|kafi'),
     GeneralGatherer('https://api.yomomma.info/', ['joke'], '👩', 'yo ?mama|yo ?mamma|your ?mom'),
+    GeneralGatherer('https://api.kanye.rest/', ['quote'], '🎤', 'kanye'),
     XkcdGatherer(),
     InspirobotGatherer()
 ]
