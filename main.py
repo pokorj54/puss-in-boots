@@ -19,7 +19,7 @@ gatherers = [
     # GeneralGatherer('https://randomfox.ca/floof/', ['image'], '🦊', ['fox']),
     GeneralGatherer('https://some-random-api.ml/img/bird', ['link'], '🐦', 'bird|birb'),
     GeneralGatherer('https://some-random-api.ml/img/dog', ['link'], '🐶', 'dog|pupp'),
-    GeneralGatherer('https://some-random-api.ml/img/cat', ['link'], '🐈', 'cat|kitt|puss'),
+    GeneralGatherer('https://some-random-api.ml/img/cat', ['link'], '🐈', 'cat|kitt|puss|kat'),
     GeneralGatherer('https://some-random-api.ml/img/fox', ['link'], '🦊', 'fox'),
     GeneralGatherer('https://some-random-api.ml/img/raccoon', ['link'], '🦝','rac+o+n|trash panda'),
     GeneralGatherer('https://some-random-api.ml/img/panda', ['link'], '🐼', '(?<!(red|trash) )panda'),
