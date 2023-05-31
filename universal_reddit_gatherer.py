@@ -10,17 +10,16 @@ reddit = praw.Reddit(
     user_agent="Puss in boots by u/Cenislav",
 )
 
-class RedditGatherer:
-    def __init__(self, subreddit, emote, trigger_regex):
-        self.subreddit = subreddit
-        self.emote = emote
-        self.trigger_regex = trigger_regex
+class UniversalRedditGatherer:
+    def __init__(self):
+        self.emote = '🤖'
+        self.trigger_regex = "r\/\w+"
 
     def get(self, match):
-        subreddit = reddit.subreddit(self.subreddit)
+        subreddit = reddit.subreddit(match[2:])
         return subreddit.random().url
 
 if __name__ == "__main__":
-    test_gatherer = RedditGatherer(input(), '', '')
+    test_gatherer = UniversalRedditGatherer(input(), '', '')
     print(test_gatherer.get_pic())
 

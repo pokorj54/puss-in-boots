@@ -5,7 +5,7 @@ class XkcdGatherer:
         self.emote = '🧑‍🔬'
         self.trigger_regex = 'xkcd'
 
-    def get(self):
+    def get(self, match):
         return xkcd.getRandomComic().getImageLink()
         
 if __name__ == "__main__":

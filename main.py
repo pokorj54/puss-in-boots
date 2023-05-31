@@ -8,6 +8,7 @@ from general_gatherer import GeneralGatherer
 from xkcd_gatherer import XkcdGatherer
 from inspirobot_gatherer import InspirobotGatherer
 from reddit_gatherer import RedditGatherer
+from universal_reddit_gatherer import UniversalRedditGatherer
 import re
 
 LOG_FOLDER = ".local"
@@ -55,7 +56,8 @@ gatherers = [
     InspirobotGatherer(),
     RedditGatherer('RATS','🐀','rat'),
     RedditGatherer('Otters','🦦','otter|ottie'),
-    RedditGatherer('Rabbits','🐇','rabbit')
+    RedditGatherer('Rabbits','🐇','rabbit'),
+    UniversalRedditGatherer()
 ]
 
 
@@ -84,8 +86,8 @@ async def on_message(message):
         used = True
     for gatherer in gatherers:
         found = re.findall(gatherer.trigger_regex, msg, flags=re.IGNORECASE)
-        for _ in range(min(len(found), 5)):
-            await message.channel.send(gatherer.get())
+        for i in range(min(len(found), 5)):
+            await message.channel.send(gatherer.get(found[i]))
             await message.add_reaction(gatherer.emote)
             used = True
     if "git" in msg:

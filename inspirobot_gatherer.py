@@ -5,7 +5,7 @@ class InspirobotGatherer:
         self.emote = '🤖'
         self.trigger_regex = 'inspir'
 
-    def get(self):
+    def get(self, match):
         api = "http://inspirobot.me/api?generate=true"
         return requests.get(api).text
         

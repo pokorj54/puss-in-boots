@@ -9,7 +9,7 @@ class GeneralGatherer:
         self.emote = emote
         self.trigger_regex = trigger_regex
 
-    def get(self):
+    def get(self, match):
         data = requests.get(self.link)
         if self.indexes == None:
             return data
