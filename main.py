@@ -91,7 +91,13 @@ async def on_message(message):
     if "git" in msg:
         await message.channel.send("You can look me up at https://github.com/pokorj54/puss-in-boots. Contribution is welcomed.")
         used = True
-    if 'list' in msg or not used:
+    if 'invite' in msg:
+        await message.channel.send("You can invite me to your server with this link https://discord.com/oauth2/authorize?client_id=1016211803547635712&scope=bot&permissions=274877909056.")
+        used = True
+    if 'list' in msg:
         await message.channel.send("I can do: \n" + "".join([str(g.trigger_regex) + " -> " + g.emote + "\n" for g in gatherers]))
-
+        used = True
+    if not used:
+        await message.channel.send("I can post animal pictures and more - write **list** to list them all. You can also **invite** me to your server or contribute - see my **git** repository. Any image API, found bugs or wanted features are also appreciated.")
+        
 client.run(TOKEN)
