@@ -1,3 +1,5 @@
+import logging
+import os
 import discord
 import my_secret_token
 import facts
@@ -8,8 +10,21 @@ from inspirobot_gatherer import InspirobotGatherer
 from reddit_gatherer import RedditGatherer
 import re
 
-TOKEN = my_secret_token.get_token()
+LOG_FOLDER = ".local"
 
+def init():
+    if not os.path.exists(LOG_FOLDER):
+        os.makedirs(LOG_FOLDER)
+    logging.basicConfig(
+        filename="{}/all.log".format(LOG_FOLDER),
+        level="INFO",
+        format="%(asctime)s:%(levelname)s:%(filename)s:%(lineno)d:%(message)s",
+    )
+
+init()
+logger = logging.getLogger(__name__)
+
+TOKEN = my_secret_token.get_token()
 
 intents = discord.Intents.default()
 
@@ -49,11 +64,18 @@ async def on_ready():
     print('Logged in as {}'.format(client.user))
 
 
+def log_message(message):
+    try:
+        logger.info(f"Message in {message.channel.guild.name}/{message.channel.name} by {message.author.name}: {message.content}")
+    except:
+        logger.info(f"Message by {message.author.name}: {message.content}")
+
 @client.event 
 async def on_message(message):
     msg = str(message.content).lower()
     if msg == '' or message.author == client.user:
         return
+    log_message(message)
     await message.add_reaction('🐱')
     used = False
     if "fact" in msg:

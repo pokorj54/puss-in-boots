@@ -127,4 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# secrets
 my_secret_token.py
+
+# logs and such
+.local
