@@ -87,7 +87,12 @@ async def on_message(message):
     for gatherer in gatherers:
         found = re.findall(gatherer.trigger_regex, msg, flags=re.IGNORECASE)
         for i in range(min(len(found), 5)):
-            await message.channel.send(gatherer.get(found[i]))
+            image = gatherer.get(found[i])
+            if isinstance(image, list):
+                for i in image:
+                    await message.channel.send(i)
+            else:
+                await message.channel.send(image)
             await message.add_reaction(gatherer.emote)
             used = True
     if "git" in msg:

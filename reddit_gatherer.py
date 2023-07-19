@@ -18,7 +18,16 @@ class RedditGatherer:
 
     def get(self, match):
         subreddit = reddit.subreddit(self.subreddit)
-        return subreddit.random().url
+        post =  subreddit.random()
+        gallery = []
+        if post.is_gallery:
+            for i in post.media_metadata.items():
+                url = i[1]['p'][0]['u']
+                url = url.split("?")[0].replace("preview", "i")
+                gallery.append(url)
+        if len(gallery) == 0:
+            return post.url
+        return gallery
 
 if __name__ == "__main__":
     test_gatherer = RedditGatherer(input(), '', '')
