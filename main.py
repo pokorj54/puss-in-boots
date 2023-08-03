@@ -47,6 +47,7 @@ gatherers = [
     GeneralGatherer('https://some-random-api.com/img/pikachu', ['link'], '😲', 'pikachu'),
     GeneralGatherer('https://random-d.uk/api/v1/random?type=png', ['url'], '🦆', 'duck|quack'),
     GeneralGatherer('https://shibe.online/api/shibes?count=1', [0], '🦮', 'cheems|shiba'),
+    GeneralGatherer('https://nekos.life/api/v2/img/lizard', ['url'], '🦎', 'liz'),
     GeneralGatherer('https://api.bunnies.io/v2/loop/random/?media=mp4,av1', ['media', 'mp4'], '🐇', 'bunn|rabbit'),
     GeneralGatherer('https://zoo-animal-api.herokuapp.com/animals/rand', ['image_link'], '🐵', 'animal|zoo'),
     GeneralGatherer('https://coffee.alexflipnote.dev/random.json', ['file'], '☕', 'coffee|kafi'),
