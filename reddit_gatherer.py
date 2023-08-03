@@ -20,11 +20,14 @@ class RedditGatherer:
         subreddit = reddit.subreddit(self.subreddit)
         post =  subreddit.random()
         gallery = []
-        if post.is_gallery:
-            for i in post.media_metadata.items():
-                url = i[1]['p'][0]['u']
-                url = url.split("?")[0].replace("preview", "i")
-                gallery.append(url)
+        try
+            if post.is_gallery:
+                for i in post.media_metadata.items():
+                    url = i[1]['p'][0]['u']
+                    url = url.split("?")[0].replace("preview", "i")
+                    gallery.append(url)
+        except:
+            pass # post does not have to have this tag
         if len(gallery) == 0:
             return post.url
         return gallery
