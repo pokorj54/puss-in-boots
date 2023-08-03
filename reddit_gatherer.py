@@ -20,7 +20,7 @@ class RedditGatherer:
         subreddit = reddit.subreddit(self.subreddit)
         post =  subreddit.random()
         gallery = []
-        try
+        try:
             if post.is_gallery:
                 for i in post.media_metadata.items():
                     url = i[1]['p'][0]['u']
