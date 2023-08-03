@@ -56,7 +56,6 @@ gatherers = [
     InspirobotGatherer(),
     RedditGatherer('RATS','🐀','rat'),
     RedditGatherer('Otters','🦦','otter|ottie'),
-    RedditGatherer('Rabbits','🐇','rabbit'),
     UniversalRedditGatherer()
 ]
 
