@@ -10,9 +10,9 @@ class RedditGatherer:
 
     def get(self, match):
         subreddit = reddit.subreddit(self.subreddit)
-        post =  subreddit.random()
         gallery = []
         while len(gallery) == 0:
+            post =  subreddit.random()
             try:
                 if post.is_gallery:
                     for i in post.media_metadata.items():
