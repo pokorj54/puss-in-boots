@@ -2,6 +2,8 @@ import reddit_common
 
 reddit = reddit_common.open_reddit()
 
+MAX_TRIES = 10
+
 class RedditGatherer:
     def __init__(self, subreddit, emote, trigger_regex):
         self.subreddit = subreddit
@@ -11,6 +13,7 @@ class RedditGatherer:
     def get(self, match):
         subreddit = reddit.subreddit(self.subreddit)
         gallery = []
+        i = 0
         while len(gallery) == 0:
             post =  subreddit.random()
             try:
@@ -20,6 +23,9 @@ class RedditGatherer:
                         url = url.split("?")[0].replace("preview", "i")
                         gallery.append(url)
             except:
+                i += 1
+                if i = MAX_TRIES: 
+                    return f"Tried to find post {MAX_TRIES} and found no suitable post."
                 continue # post does not have to have this tag -> not gallery or single photo
             break
         if len(gallery) == 0:
