@@ -57,7 +57,7 @@ gatherers = [
     GeneralGatherer('https://api.kanye.rest/', ['quote'], '🎤', 'kanye'),
     XkcdGatherer(),
     InspirobotGatherer(),
-    NumberedPictureGatherer('https://www.allaboutfrogs.org/funstuff/random/', 54, 4, 'jpg', '🐸', 'frog'),
+    NumberedPictureGatherer('http://www.allaboutfrogs.org/funstuff/random/', 54, 4, 'jpg', '🐸', 'frog'),
     RedditGatherer('RATS','🐀','rat'),
     RedditGatherer('Otters','🦦','otter|ottie'),
     UniversalRedditGatherer()
