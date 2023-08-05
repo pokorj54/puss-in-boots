@@ -1,14 +1,6 @@
-import praw
-import my_secret_token
-import random
+import reddit_common
 
-reddit_credentials=my_secret_token.get_reddit_credentials()
-
-reddit = praw.Reddit(
-    client_id=reddit_credentials[0],
-    client_secret=reddit_credentials[1],
-    user_agent="Puss in boots by u/Cenislav",
-)
+reddit = reddit_common.open_reddit()
 
 class RedditGatherer:
     def __init__(self, subreddit, emote, trigger_regex):
@@ -20,14 +12,16 @@ class RedditGatherer:
         subreddit = reddit.subreddit(self.subreddit)
         post =  subreddit.random()
         gallery = []
-        try:
-            if post.is_gallery:
-                for i in post.media_metadata.items():
-                    url = i[1]['p'][0]['u']
-                    url = url.split("?")[0].replace("preview", "i")
-                    gallery.append(url)
-        except:
-            pass # post does not have to have this tag
+        while len(gallery) == 0:
+            try:
+                if post.is_gallery:
+                    for i in post.media_metadata.items():
+                        url = i[1]['p'][0]['u']
+                        url = url.split("?")[0].replace("preview", "i")
+                        gallery.append(url)
+            except:
+                continue # post does not have to have this tag -> not gallery or single photo
+            break
         if len(gallery) == 0:
             return post.url
         return gallery

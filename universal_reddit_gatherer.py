@@ -1,14 +1,6 @@
-import praw
-import my_secret_token
-import random
+import reddit_common
 
-reddit_credentials=my_secret_token.get_reddit_credentials()
-
-reddit = praw.Reddit(
-    client_id=reddit_credentials[0],
-    client_secret=reddit_credentials[1],
-    user_agent="Puss in boots by u/Cenislav",
-)
+reddit = reddit_common.open_reddit()
 
 class UniversalRedditGatherer:
     def __init__(self):
