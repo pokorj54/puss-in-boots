@@ -24,7 +24,7 @@ class RedditGatherer:
                         gallery.append(url)
             except:
                 i += 1
-                if i = MAX_TRIES: 
+                if i == MAX_TRIES: 
                     return f"Tried to find post {MAX_TRIES} and found no suitable post."
                 continue # post does not have to have this tag -> not gallery or single photo
             break
