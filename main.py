@@ -9,6 +9,7 @@ from xkcd_gatherer import XkcdGatherer
 from inspirobot_gatherer import InspirobotGatherer
 from reddit_gatherer import RedditGatherer
 from universal_reddit_gatherer import UniversalRedditGatherer
+from numbered_picture_gatherer import NumberedPictureGatherer
 import re
 
 LOG_FOLDER = ".local"
@@ -56,6 +57,7 @@ gatherers = [
     GeneralGatherer('https://api.kanye.rest/', ['quote'], '🎤', 'kanye'),
     XkcdGatherer(),
     InspirobotGatherer(),
+    NumberedPictureGatherer('www.allaboutfrogs.org/funstuff/random/', 54, 4, 'jpg', '🐸', 'frog'),
     RedditGatherer('RATS','🐀','rat'),
     RedditGatherer('Otters','🦦','otter|ottie'),
     UniversalRedditGatherer()
