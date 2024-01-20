@@ -59,6 +59,7 @@ gatherers = [
     InspirobotGatherer(),
     NumberedPictureGatherer('http://www.allaboutfrogs.org/funstuff/random/', 54, 4, 'jpg', '🐸', 'frog'),
     RedditGatherer('RATS','🐀','rat'),
+    RedditGatherer('hamsters','🐹','hamst|hampt'),
     RedditGatherer('Otters','🦦','otter|ottie'),
     UniversalRedditGatherer()
 ]
